@@ -1,6 +1,6 @@
 # Pre-clean
-rm -Rf generated
-rm generated.zip
+sudo rm -Rf generated
+sudo rm generated.zip
 
 curl -X POST \
   https://generator3.swagger.io/api/generate \
@@ -8,15 +8,18 @@ curl -X POST \
   -H 'cache-control: no-cache' \
   -d '{
     "options": {
-        "packageName": "MailCowPhpClient",
-        "apiPackage": "MailCow",
-        "variableNamingConvention": "snake_case",
-        "invokerPackage": "MailCow\\Api",
-        "composerVendorName": "e-monsite",
-        "composerProjectName": "mailcow-php-client",
-		"gitUserId": "e-monsite",
-		"gitRepoId": "mailcow-php-client",
-    "gitRepoBaseURL": "https://github.com/"
+      "packageName": "MailCowPhpClient",
+      "apiPackage": "Api",
+      "variableNamingConvention": "snake_case",
+      "invokerPackage": "MailCow",
+      "composerVendorName": "e-monsite",
+      "composerProjectName": "mailcow-php-client",
+      "modelPackage": "Models",
+      "variableNamingConvention": "camelCase",
+      "packagePath": "GeneratedMailCow",
+      "gitUserId": "e-monsite",
+      "gitRepoId": "mailcow-php-client",
+      "gitRepoBaseURL": "https://github.com/"
     },
     "lang": "php",
     "type": "CLIENT",
@@ -27,19 +30,19 @@ curl -X POST \
 sudo unzip generated.zip -d generated/
 
 # Remove old files
-rm composer.json
-rm phpunit.xml.dist
-rm README.md
-rm -Rf docs
-rm -Rf lib
-rm -Rf test
+sudo rm composer.json
+sudo rm phpunit.xml.dist
+sudo rm README.md
+sudo rm -Rf docs
+sudo rm -Rf lib
+sudo rm -Rf test
 
 # Move file in root directory
-cp -Rf generated/SwaggerClient-php/* .
+sudo cp -Rf generated/SwaggerClient-php/* .
 
 # Post-clean
-rm -Rf generated
-rm generated.zip
+sudo rm -Rf generated
+sudo rm generated.zip
 
 # No use of git_push script, clean it
-rm git_push.sh
+sudo rm git_push.sh
