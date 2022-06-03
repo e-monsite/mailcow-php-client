@@ -1,31 +1,39 @@
 # MailCow\AddressRewritingApi
 
-All URIs are relative to *https://raw.githubusercontent.com/*
+All URIs are relative to https://raw.githubusercontent.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createBCCMap**](AddressRewritingApi.md#createbccmap) | **POST** /api/v1/add/bcc | Create BCC Map
-[**createRecipientMap**](AddressRewritingApi.md#createrecipientmap) | **POST** /api/v1/add/recipient_map | Create Recipient Map
-[**deleteBCCMap**](AddressRewritingApi.md#deletebccmap) | **POST** /api/v1/delete/bcc | Delete BCC Map
-[**deleteRecipientMap**](AddressRewritingApi.md#deleterecipientmap) | **POST** /api/v1/delete/recipient_map | Delete Recipient Map
-[**getBCCMap**](AddressRewritingApi.md#getbccmap) | **GET** /api/v1/get/bcc/{id} | Get BCC Map
-[**getRecipientMap**](AddressRewritingApi.md#getrecipientmap) | **GET** /api/v1/get/recipient_map/{id} | Get Recipient Map
+[**createBCCMap()**](AddressRewritingApi.md#createBCCMap) | **POST** /api/v1/add/bcc | Create BCC Map
+[**createRecipientMap()**](AddressRewritingApi.md#createRecipientMap) | **POST** /api/v1/add/recipient_map | Create Recipient Map
+[**deleteBCCMap()**](AddressRewritingApi.md#deleteBCCMap) | **POST** /api/v1/delete/bcc | Delete BCC Map
+[**deleteRecipientMap()**](AddressRewritingApi.md#deleteRecipientMap) | **POST** /api/v1/delete/recipient_map | Delete Recipient Map
+[**getBCCMap()**](AddressRewritingApi.md#getBCCMap) | **GET** /api/v1/get/bcc/{id} | Get BCC Map
+[**getRecipientMap()**](AddressRewritingApi.md#getRecipientMap) | **GET** /api/v1/get/recipient_map/{id} | Get Recipient Map
 
-# **createBCCMap**
-> \MailCow\Models\InlineResponse200 createBCCMap($body)
+
+## `createBCCMap()`
+
+```php
+createBCCMap($createBCCMapRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Create BCC Map
 
 Using this endpoint you can create a BCC map to forward all mails via a bcc for a given domain.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AddressRewritingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -33,26 +41,25 @@ $apiInstance = new MailCow\Api\AddressRewritingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\AddBccBody(); // \MailCow\Models\AddBccBody | 
+$createBCCMapRequest = new \MailCow\Models\CreateBCCMapRequest(); // \MailCow\Models\CreateBCCMapRequest
 
 try {
-    $result = $apiInstance->createBCCMap($body);
+    $result = $apiInstance->createBCCMap($createBCCMapRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddressRewritingApi->createBCCMap: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\AddBccBody**](../Model/AddBccBody.md)|  | [optional]
+ **createBCCMapRequest** | [**\MailCow\Models\CreateBCCMapRequest**](../Model/CreateBCCMapRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -60,26 +67,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **createRecipientMap**
-> \MailCow\Models\InlineResponse200 createRecipientMap($body)
+## `createRecipientMap()`
+
+```php
+createRecipientMap($createRecipientMapRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Create Recipient Map
 
 Using this endpoint you can create a recipient map to forward all mails from one email address to another.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AddressRewritingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -87,26 +103,25 @@ $apiInstance = new MailCow\Api\AddressRewritingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\AddRecipientMapBody(); // \MailCow\Models\AddRecipientMapBody | 
+$createRecipientMapRequest = new \MailCow\Models\CreateRecipientMapRequest(); // \MailCow\Models\CreateRecipientMapRequest
 
 try {
-    $result = $apiInstance->createRecipientMap($body);
+    $result = $apiInstance->createRecipientMap($createRecipientMapRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddressRewritingApi->createRecipientMap: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\AddRecipientMapBody**](../Model/AddRecipientMapBody.md)|  | [optional]
+ **createRecipientMapRequest** | [**\MailCow\Models\CreateRecipientMapRequest**](../Model/CreateRecipientMapRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -114,26 +129,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **deleteBCCMap**
-> \MailCow\Models\InlineResponse200 deleteBCCMap($body)
+## `deleteBCCMap()`
+
+```php
+deleteBCCMap($deleteBCCMapRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Delete BCC Map
 
 Using this endpoint you can delete a BCC map, for this you have to know its ID. You can get the ID using the GET method.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AddressRewritingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -141,26 +165,25 @@ $apiInstance = new MailCow\Api\AddressRewritingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\DeleteBccBody(); // \MailCow\Models\DeleteBccBody | 
+$deleteBCCMapRequest = new \MailCow\Models\DeleteBCCMapRequest(); // \MailCow\Models\DeleteBCCMapRequest
 
 try {
-    $result = $apiInstance->deleteBCCMap($body);
+    $result = $apiInstance->deleteBCCMap($deleteBCCMapRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddressRewritingApi->deleteBCCMap: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\DeleteBccBody**](../Model/DeleteBccBody.md)|  | [optional]
+ **deleteBCCMapRequest** | [**\MailCow\Models\DeleteBCCMapRequest**](../Model/DeleteBCCMapRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -168,26 +191,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **deleteRecipientMap**
-> \MailCow\Models\InlineResponse200 deleteRecipientMap($body)
+## `deleteRecipientMap()`
+
+```php
+deleteRecipientMap($deleteRecipientMapRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Delete Recipient Map
 
 Using this endpoint you can delete a recipient map, for this you have to know its ID. You can get the ID using the GET method.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AddressRewritingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -195,26 +227,25 @@ $apiInstance = new MailCow\Api\AddressRewritingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\DeleteRecipientMapBody(); // \MailCow\Models\DeleteRecipientMapBody | 
+$deleteRecipientMapRequest = new \MailCow\Models\DeleteRecipientMapRequest(); // \MailCow\Models\DeleteRecipientMapRequest
 
 try {
-    $result = $apiInstance->deleteRecipientMap($body);
+    $result = $apiInstance->deleteRecipientMap($deleteRecipientMapRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddressRewritingApi->deleteRecipientMap: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\DeleteRecipientMapBody**](../Model/DeleteRecipientMapBody.md)|  | [optional]
+ **deleteRecipientMapRequest** | [**\MailCow\Models\DeleteRecipientMapRequest**](../Model/DeleteRecipientMapRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -222,26 +253,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getBCCMap**
-> getBCCMap($id, $x_api_key)
+## `getBCCMap()`
+
+```php
+getBCCMap($id, $xAPIKey)
+```
 
 Get BCC Map
 
 Using this endpoint you can get all BCC maps.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AddressRewritingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -249,15 +289,14 @@ $apiInstance = new MailCow\Api\AddressRewritingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = "id_example"; // string | id of entry you want to get
-$x_api_key = "x_api_key_example"; // string | e.g. api-key-string
+$id = all; // string | id of entry you want to get
+$xAPIKey = api-key-string; // string | e.g. api-key-string
 
 try {
-    $apiInstance->getBCCMap($id, $x_api_key);
+    $apiInstance->getBCCMap($id, $xAPIKey);
 } catch (Exception $e) {
     echo 'Exception when calling AddressRewritingApi->getBCCMap: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -265,7 +304,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| id of entry you want to get |
- **x_api_key** | **string**| e.g. api-key-string | [optional]
+ **xAPIKey** | **string**| e.g. api-key-string | [optional]
 
 ### Return type
 
@@ -277,26 +316,35 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getRecipientMap**
-> getRecipientMap($id, $x_api_key)
+## `getRecipientMap()`
+
+```php
+getRecipientMap($id, $xAPIKey)
+```
 
 Get Recipient Map
 
 Using this endpoint you can get all recipient maps.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AddressRewritingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -304,15 +352,14 @@ $apiInstance = new MailCow\Api\AddressRewritingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = "id_example"; // string | id of entry you want to get
-$x_api_key = "x_api_key_example"; // string | e.g. api-key-string
+$id = all; // string | id of entry you want to get
+$xAPIKey = api-key-string; // string | e.g. api-key-string
 
 try {
-    $apiInstance->getRecipientMap($id, $x_api_key);
+    $apiInstance->getRecipientMap($id, $xAPIKey);
 } catch (Exception $e) {
     echo 'Exception when calling AddressRewritingApi->getRecipientMap: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -320,7 +367,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| id of entry you want to get |
- **x_api_key** | **string**| e.g. api-key-string | [optional]
+ **xAPIKey** | **string**| e.g. api-key-string | [optional]
 
 ### Return type
 
@@ -332,8 +379,9 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

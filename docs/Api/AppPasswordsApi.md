@@ -1,28 +1,36 @@
 # MailCow\AppPasswordsApi
 
-All URIs are relative to *https://raw.githubusercontent.com/*
+All URIs are relative to https://raw.githubusercontent.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAppPassword**](AppPasswordsApi.md#createapppassword) | **POST** /api/v1/add/app-passwd | Create App Password
-[**deleteAppPassword**](AppPasswordsApi.md#deleteapppassword) | **POST** /api/v1/delete/app-passwd | Delete App Password
-[**getAppPassword**](AppPasswordsApi.md#getapppassword) | **GET** /api/v1/get/app-passwd/all/{mailbox} | Get App Password
+[**createAppPassword()**](AppPasswordsApi.md#createAppPassword) | **POST** /api/v1/add/app-passwd | Create App Password
+[**deleteAppPassword()**](AppPasswordsApi.md#deleteAppPassword) | **POST** /api/v1/delete/app-passwd | Delete App Password
+[**getAppPassword()**](AppPasswordsApi.md#getAppPassword) | **GET** /api/v1/get/app-passwd/all/{mailbox} | Get App Password
 
-# **createAppPassword**
-> \MailCow\Models\InlineResponse200 createAppPassword($body)
+
+## `createAppPassword()`
+
+```php
+createAppPassword($createAppPasswordRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Create App Password
 
 Using this endpoint you can create a new app password for a specific mailbox.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AppPasswordsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -30,26 +38,25 @@ $apiInstance = new MailCow\Api\AppPasswordsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\AddApppasswdBody(); // \MailCow\Models\AddApppasswdBody | 
+$createAppPasswordRequest = new \MailCow\Models\CreateAppPasswordRequest(); // \MailCow\Models\CreateAppPasswordRequest
 
 try {
-    $result = $apiInstance->createAppPassword($body);
+    $result = $apiInstance->createAppPassword($createAppPasswordRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AppPasswordsApi->createAppPassword: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\AddApppasswdBody**](../Model/AddApppasswdBody.md)|  | [optional]
+ **createAppPasswordRequest** | [**\MailCow\Models\CreateAppPasswordRequest**](../Model/CreateAppPasswordRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -57,26 +64,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **deleteAppPassword**
-> \MailCow\Models\InlineResponse200 deleteAppPassword($body)
+## `deleteAppPassword()`
+
+```php
+deleteAppPassword($deleteAppPasswordRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Delete App Password
 
 Using this endpoint you can delete a single app password.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AppPasswordsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -84,26 +100,25 @@ $apiInstance = new MailCow\Api\AppPasswordsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\DeleteApppasswdBody(); // \MailCow\Models\DeleteApppasswdBody | 
+$deleteAppPasswordRequest = new \MailCow\Models\DeleteAppPasswordRequest(); // \MailCow\Models\DeleteAppPasswordRequest
 
 try {
-    $result = $apiInstance->deleteAppPassword($body);
+    $result = $apiInstance->deleteAppPassword($deleteAppPasswordRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AppPasswordsApi->deleteAppPassword: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\DeleteApppasswdBody**](../Model/DeleteApppasswdBody.md)|  | [optional]
+ **deleteAppPasswordRequest** | [**\MailCow\Models\DeleteAppPasswordRequest**](../Model/DeleteAppPasswordRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -111,26 +126,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getAppPassword**
-> getAppPassword($mailbox, $x_api_key)
+## `getAppPassword()`
+
+```php
+getAppPassword($mailbox, $xAPIKey)
+```
 
 Get App Password
 
 Using this endpoint you can get all app passwords from a specific mailbox.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AppPasswordsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -138,15 +162,14 @@ $apiInstance = new MailCow\Api\AppPasswordsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$mailbox = "mailbox_example"; // string | mailbox of entry you want to get
-$x_api_key = "x_api_key_example"; // string | e.g. api-key-string
+$mailbox = hello@mailcow.email; // string | mailbox of entry you want to get
+$xAPIKey = api-key-string; // string | e.g. api-key-string
 
 try {
-    $apiInstance->getAppPassword($mailbox, $x_api_key);
+    $apiInstance->getAppPassword($mailbox, $xAPIKey);
 } catch (Exception $e) {
     echo 'Exception when calling AppPasswordsApi->getAppPassword: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -154,7 +177,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **mailbox** | **string**| mailbox of entry you want to get |
- **x_api_key** | **string**| e.g. api-key-string | [optional]
+ **xAPIKey** | **string**| e.g. api-key-string | [optional]
 
 ### Return type
 
@@ -166,8 +189,9 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

@@ -1,31 +1,39 @@
 # MailCow\RoutingApi
 
-All URIs are relative to *https://raw.githubusercontent.com/*
+All URIs are relative to https://raw.githubusercontent.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createSenderDependentTransports**](RoutingApi.md#createsenderdependenttransports) | **POST** /api/v1/add/relayhost | Create Sender-Dependent Transports
-[**createTransportMaps**](RoutingApi.md#createtransportmaps) | **POST** /api/v1/add/transport | Create Transport Maps
-[**deleteSenderDependentTransports**](RoutingApi.md#deletesenderdependenttransports) | **POST** /api/v1/delete/relayhost | Delete Sender-Dependent Transports
-[**deleteTransportMaps**](RoutingApi.md#deletetransportmaps) | **POST** /api/v1/delete/transport | Delete Transport Maps
-[**getSenderDependentTransports**](RoutingApi.md#getsenderdependenttransports) | **GET** /api/v1/get/relayhost/{id} | Get Sender-Dependent Transports
-[**getTransportMaps**](RoutingApi.md#gettransportmaps) | **GET** /api/v1/get/transport/{id} | Get Transport Maps
+[**createSenderDependentTransports()**](RoutingApi.md#createSenderDependentTransports) | **POST** /api/v1/add/relayhost | Create Sender-Dependent Transports
+[**createTransportMaps()**](RoutingApi.md#createTransportMaps) | **POST** /api/v1/add/transport | Create Transport Maps
+[**deleteSenderDependentTransports()**](RoutingApi.md#deleteSenderDependentTransports) | **POST** /api/v1/delete/relayhost | Delete Sender-Dependent Transports
+[**deleteTransportMaps()**](RoutingApi.md#deleteTransportMaps) | **POST** /api/v1/delete/transport | Delete Transport Maps
+[**getSenderDependentTransports()**](RoutingApi.md#getSenderDependentTransports) | **GET** /api/v1/get/relayhost/{id} | Get Sender-Dependent Transports
+[**getTransportMaps()**](RoutingApi.md#getTransportMaps) | **GET** /api/v1/get/transport/{id} | Get Transport Maps
 
-# **createSenderDependentTransports**
-> \MailCow\Models\InlineResponse200 createSenderDependentTransports($body)
+
+## `createSenderDependentTransports()`
+
+```php
+createSenderDependentTransports($createSenderDependentTransportsRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Create Sender-Dependent Transports
 
 Using this endpoint you can create Sender-Dependent Transports.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -33,26 +41,25 @@ $apiInstance = new MailCow\Api\RoutingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\AddRelayhostBody(); // \MailCow\Models\AddRelayhostBody | 
+$createSenderDependentTransportsRequest = new \MailCow\Models\CreateSenderDependentTransportsRequest(); // \MailCow\Models\CreateSenderDependentTransportsRequest
 
 try {
-    $result = $apiInstance->createSenderDependentTransports($body);
+    $result = $apiInstance->createSenderDependentTransports($createSenderDependentTransportsRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoutingApi->createSenderDependentTransports: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\AddRelayhostBody**](../Model/AddRelayhostBody.md)|  | [optional]
+ **createSenderDependentTransportsRequest** | [**\MailCow\Models\CreateSenderDependentTransportsRequest**](../Model/CreateSenderDependentTransportsRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -60,26 +67,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **createTransportMaps**
-> \MailCow\Models\InlineResponse200 createTransportMaps($body)
+## `createTransportMaps()`
+
+```php
+createTransportMaps($createTransportMapsRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Create Transport Maps
 
 Using this endpoint you can create Sender-Dependent Transports.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -87,26 +103,25 @@ $apiInstance = new MailCow\Api\RoutingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\AddTransportBody(); // \MailCow\Models\AddTransportBody | 
+$createTransportMapsRequest = new \MailCow\Models\CreateTransportMapsRequest(); // \MailCow\Models\CreateTransportMapsRequest
 
 try {
-    $result = $apiInstance->createTransportMaps($body);
+    $result = $apiInstance->createTransportMaps($createTransportMapsRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoutingApi->createTransportMaps: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\AddTransportBody**](../Model/AddTransportBody.md)|  | [optional]
+ **createTransportMapsRequest** | [**\MailCow\Models\CreateTransportMapsRequest**](../Model/CreateTransportMapsRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -114,26 +129,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **deleteSenderDependentTransports**
-> \MailCow\Models\InlineResponse200 deleteSenderDependentTransports($body)
+## `deleteSenderDependentTransports()`
+
+```php
+deleteSenderDependentTransports($deleteSenderDependentTransportsRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Delete Sender-Dependent Transports
 
 Using this endpoint you can delete a Sender-Dependent Transport, for this you have to know its ID. You can get the ID using the GET method.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -141,26 +165,25 @@ $apiInstance = new MailCow\Api\RoutingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\DeleteRelayhostBody(); // \MailCow\Models\DeleteRelayhostBody | 
+$deleteSenderDependentTransportsRequest = new \MailCow\Models\DeleteSenderDependentTransportsRequest(); // \MailCow\Models\DeleteSenderDependentTransportsRequest
 
 try {
-    $result = $apiInstance->deleteSenderDependentTransports($body);
+    $result = $apiInstance->deleteSenderDependentTransports($deleteSenderDependentTransportsRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoutingApi->deleteSenderDependentTransports: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\DeleteRelayhostBody**](../Model/DeleteRelayhostBody.md)|  | [optional]
+ **deleteSenderDependentTransportsRequest** | [**\MailCow\Models\DeleteSenderDependentTransportsRequest**](../Model/DeleteSenderDependentTransportsRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -168,26 +191,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **deleteTransportMaps**
-> \MailCow\Models\InlineResponse200 deleteTransportMaps($body)
+## `deleteTransportMaps()`
+
+```php
+deleteTransportMaps($deleteTransportMapsRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Delete Transport Maps
 
 Using this endpoint you can delete a Transport Maps, for this you have to know its ID. You can get the ID using the GET method.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -195,26 +227,25 @@ $apiInstance = new MailCow\Api\RoutingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\DeleteTransportBody(); // \MailCow\Models\DeleteTransportBody | 
+$deleteTransportMapsRequest = new \MailCow\Models\DeleteTransportMapsRequest(); // \MailCow\Models\DeleteTransportMapsRequest
 
 try {
-    $result = $apiInstance->deleteTransportMaps($body);
+    $result = $apiInstance->deleteTransportMaps($deleteTransportMapsRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RoutingApi->deleteTransportMaps: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\DeleteTransportBody**](../Model/DeleteTransportBody.md)|  | [optional]
+ **deleteTransportMapsRequest** | [**\MailCow\Models\DeleteTransportMapsRequest**](../Model/DeleteTransportMapsRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -222,26 +253,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getSenderDependentTransports**
-> getSenderDependentTransports($id, $x_api_key)
+## `getSenderDependentTransports()`
+
+```php
+getSenderDependentTransports($id, $xAPIKey)
+```
 
 Get Sender-Dependent Transports
 
 Using this endpoint you can get all Sender-Dependent Transports.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -249,15 +289,14 @@ $apiInstance = new MailCow\Api\RoutingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = "id_example"; // string | id of entry you want to get
-$x_api_key = "x_api_key_example"; // string | e.g. api-key-string
+$id = all; // string | id of entry you want to get
+$xAPIKey = api-key-string; // string | e.g. api-key-string
 
 try {
-    $apiInstance->getSenderDependentTransports($id, $x_api_key);
+    $apiInstance->getSenderDependentTransports($id, $xAPIKey);
 } catch (Exception $e) {
     echo 'Exception when calling RoutingApi->getSenderDependentTransports: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -265,7 +304,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| id of entry you want to get |
- **x_api_key** | **string**| e.g. api-key-string | [optional]
+ **xAPIKey** | **string**| e.g. api-key-string | [optional]
 
 ### Return type
 
@@ -277,26 +316,35 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getTransportMaps**
-> getTransportMaps($id, $x_api_key)
+## `getTransportMaps()`
+
+```php
+getTransportMaps($id, $xAPIKey)
+```
 
 Get Transport Maps
 
 Using this endpoint you can get all Transport Maps.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\RoutingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -304,15 +352,14 @@ $apiInstance = new MailCow\Api\RoutingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = "id_example"; // string | id of entry you want to get
-$x_api_key = "x_api_key_example"; // string | e.g. api-key-string
+$id = all; // string | id of entry you want to get
+$xAPIKey = api-key-string; // string | e.g. api-key-string
 
 try {
-    $apiInstance->getTransportMaps($id, $x_api_key);
+    $apiInstance->getTransportMaps($id, $xAPIKey);
 } catch (Exception $e) {
     echo 'Exception when calling RoutingApi->getTransportMaps: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -320,7 +367,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| id of entry you want to get |
- **x_api_key** | **string**| e.g. api-key-string | [optional]
+ **xAPIKey** | **string**| e.g. api-key-string | [optional]
 
 ### Return type
 
@@ -332,8 +379,9 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

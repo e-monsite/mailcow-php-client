@@ -1,31 +1,39 @@
 # MailCow\AliasesApi
 
-All URIs are relative to *https://raw.githubusercontent.com/*
+All URIs are relative to https://raw.githubusercontent.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAlias**](AliasesApi.md#createalias) | **POST** /api/v1/add/alias | Create alias
-[**createTimeLimitedAlias**](AliasesApi.md#createtimelimitedalias) | **POST** /api/v1/add/time_limited_alias | Create time limited alias
-[**deleteAlias**](AliasesApi.md#deletealias) | **POST** /api/v1/delete/alias | Delete alias
-[**getAliases**](AliasesApi.md#getaliases) | **GET** /api/v1/get/alias/{id} | Get aliases
-[**getTimeLimitedAliases**](AliasesApi.md#gettimelimitedaliases) | **GET** /api/v1/get/time_limited_aliases/{mailbox} | Get time limited aliases
-[**updateAlias**](AliasesApi.md#updatealias) | **POST** /api/v1/edit/alias | Update alias
+[**createAlias()**](AliasesApi.md#createAlias) | **POST** /api/v1/add/alias | Create alias
+[**createTimeLimitedAlias()**](AliasesApi.md#createTimeLimitedAlias) | **POST** /api/v1/add/time_limited_alias | Create time limited alias
+[**deleteAlias()**](AliasesApi.md#deleteAlias) | **POST** /api/v1/delete/alias | Delete alias
+[**getAliases()**](AliasesApi.md#getAliases) | **GET** /api/v1/get/alias/{id} | Get aliases
+[**getTimeLimitedAliases()**](AliasesApi.md#getTimeLimitedAliases) | **GET** /api/v1/get/time_limited_aliases/{mailbox} | Get time limited aliases
+[**updateAlias()**](AliasesApi.md#updateAlias) | **POST** /api/v1/edit/alias | Update alias
 
-# **createAlias**
-> \MailCow\Models\InlineResponse200 createAlias($body)
+
+## `createAlias()`
+
+```php
+createAlias($createAliasRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Create alias
 
 You may create your own mailbox alias using this action. It takes a JSON object containing a domain informations. Only one `goto*` option can be used, for ex. if you want learn as spam, then send just `goto_spam = 1` in request body.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AliasesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -33,26 +41,25 @@ $apiInstance = new MailCow\Api\AliasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\AddAliasBody(); // \MailCow\Models\AddAliasBody | 
+$createAliasRequest = new \MailCow\Models\CreateAliasRequest(); // \MailCow\Models\CreateAliasRequest
 
 try {
-    $result = $apiInstance->createAlias($body);
+    $result = $apiInstance->createAlias($createAliasRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AliasesApi->createAlias: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\AddAliasBody**](../Model/AddAliasBody.md)|  | [optional]
+ **createAliasRequest** | [**\MailCow\Models\CreateAliasRequest**](../Model/CreateAliasRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -60,26 +67,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **createTimeLimitedAlias**
-> \MailCow\Models\InlineResponse200 createTimeLimitedAlias($body)
+## `createTimeLimitedAlias()`
+
+```php
+createTimeLimitedAlias($createTimeLimitedAliasRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Create time limited alias
 
 You may create a time limited alias using this action. It takes a JSON object containing a domain and mailbox informations. Mailcow will generate a random alias.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AliasesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -87,26 +103,25 @@ $apiInstance = new MailCow\Api\AliasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\AddTimeLimitedAliasBody(); // \MailCow\Models\AddTimeLimitedAliasBody | 
+$createTimeLimitedAliasRequest = new \MailCow\Models\CreateTimeLimitedAliasRequest(); // \MailCow\Models\CreateTimeLimitedAliasRequest
 
 try {
-    $result = $apiInstance->createTimeLimitedAlias($body);
+    $result = $apiInstance->createTimeLimitedAlias($createTimeLimitedAliasRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AliasesApi->createTimeLimitedAlias: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\AddTimeLimitedAliasBody**](../Model/AddTimeLimitedAliasBody.md)|  | [optional]
+ **createTimeLimitedAliasRequest** | [**\MailCow\Models\CreateTimeLimitedAliasRequest**](../Model/CreateTimeLimitedAliasRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -114,26 +129,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **deleteAlias**
-> \MailCow\Models\InlineResponse200 deleteAlias($body)
+## `deleteAlias()`
+
+```php
+deleteAlias($requestBody): \MailCow\Models\CreateAlias200Response
+```
 
 Delete alias
 
 You can delete one or more aliases.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AliasesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -141,26 +165,25 @@ $apiInstance = new MailCow\Api\AliasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = array("body_example"); // string[] | 
+$requestBody = array('requestBody_example'); // string[]
 
 try {
-    $result = $apiInstance->deleteAlias($body);
+    $result = $apiInstance->deleteAlias($requestBody);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AliasesApi->deleteAlias: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**string[]**](../Model/string.md)|  | [optional]
+ **requestBody** | [**string[]**](../Model/string.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -168,26 +191,35 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getAliases**
-> getAliases($id, $x_api_key)
+## `getAliases()`
+
+```php
+getAliases($id, $xAPIKey)
+```
 
 Get aliases
 
 You can list mailbox aliases existing in system.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AliasesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -195,15 +227,14 @@ $apiInstance = new MailCow\Api\AliasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = "id_example"; // string | id of entry you want to get
-$x_api_key = "x_api_key_example"; // string | e.g. api-key-string
+$id = all; // string | id of entry you want to get
+$xAPIKey = api-key-string; // string | e.g. api-key-string
 
 try {
-    $apiInstance->getAliases($id, $x_api_key);
+    $apiInstance->getAliases($id, $xAPIKey);
 } catch (Exception $e) {
     echo 'Exception when calling AliasesApi->getAliases: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -211,7 +242,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| id of entry you want to get |
- **x_api_key** | **string**| e.g. api-key-string | [optional]
+ **xAPIKey** | **string**| e.g. api-key-string | [optional]
 
 ### Return type
 
@@ -223,26 +254,35 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getTimeLimitedAliases**
-> getTimeLimitedAliases($mailbox, $x_api_key)
+## `getTimeLimitedAliases()`
+
+```php
+getTimeLimitedAliases($mailbox, $xAPIKey)
+```
 
 Get time limited aliases
 
 You can list time limited mailbox aliases existing in system.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AliasesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -250,15 +290,14 @@ $apiInstance = new MailCow\Api\AliasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$mailbox = "mailbox_example"; // string | mailbox you want to get aliasses from
-$x_api_key = "x_api_key_example"; // string | e.g. api-key-string
+$mailbox = domain.tld; // string | mailbox you want to get aliasses from
+$xAPIKey = api-key-string; // string | e.g. api-key-string
 
 try {
-    $apiInstance->getTimeLimitedAliases($mailbox, $x_api_key);
+    $apiInstance->getTimeLimitedAliases($mailbox, $xAPIKey);
 } catch (Exception $e) {
     echo 'Exception when calling AliasesApi->getTimeLimitedAliases: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -266,7 +305,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **mailbox** | **string**| mailbox you want to get aliasses from |
- **x_api_key** | **string**| e.g. api-key-string | [optional]
+ **xAPIKey** | **string**| e.g. api-key-string | [optional]
 
 ### Return type
 
@@ -278,26 +317,35 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **updateAlias**
-> \MailCow\Models\InlineResponse200 updateAlias($body)
+## `updateAlias()`
+
+```php
+updateAlias($updateAliasRequest): \MailCow\Models\CreateAlias200Response
+```
 
 Update alias
 
 You can update one or more aliases per request. You can also send just attributes you want to change
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+
 // Configure API key authorization: ApiKeyAuth
 $config = MailCow\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = MailCow\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
 
 $apiInstance = new MailCow\Api\AliasesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -305,26 +353,25 @@ $apiInstance = new MailCow\Api\AliasesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \MailCow\Models\EditAliasBody(); // \MailCow\Models\EditAliasBody | 
+$updateAliasRequest = new \MailCow\Models\UpdateAliasRequest(); // \MailCow\Models\UpdateAliasRequest
 
 try {
-    $result = $apiInstance->updateAlias($body);
+    $result = $apiInstance->updateAlias($updateAliasRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AliasesApi->updateAlias: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\MailCow\Models\EditAliasBody**](../Model/EditAliasBody.md)|  | [optional]
+ **updateAliasRequest** | [**\MailCow\Models\UpdateAliasRequest**](../Model/UpdateAliasRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MailCow\Models\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailCow\Models\CreateAlias200Response**](../Model/CreateAlias200Response.md)
 
 ### Authorization
 
@@ -332,8 +379,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

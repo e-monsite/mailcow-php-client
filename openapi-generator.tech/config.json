@@ -1,0 +1,22 @@
+{
+	"composerVendorName": "e-monsite",
+	"composerProjectName": "mailcow-php-client",
+	"gitUserId": "e-monsite",
+	"gitRepoId": "mailcow-php-client",
+	"gitRepoBaseURL": "https://github.com/",
+	"allowUnicodeIdentifiers": true,
+	"apiPackage": "Api",
+	"disallowAdditionalPropertiesIfNotPresent": true,
+	"ensureUniqueParams": true,
+	"enumUnknownDefaultCase": false,
+	"hideGenerationTimestamp": true,
+	"invokerPackage": "MailCow",
+	"legacyDiscriminatorBehavior": true,
+	"modelPackage": "Models",
+	"packageName": "MailCowPhpClient",
+	"prependFormOrBodyParameters": false,
+	"sortModelPropertiesByRequiredFlag": true,
+	"sortParamsByRequiredFlag": true,
+	"srcBasePath": "src",
+	"variableNamingConvention": "camelCase"
+}
